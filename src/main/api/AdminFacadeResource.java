@@ -18,7 +18,7 @@ import main.Facade.AdminFacade;
 import main.beanes.Company;
 import main.beanes.Customer;
 
-@Path("/coupon")
+@Path("/admin")
 @Produces({ MediaType.APPLICATION_JSON })
 @Consumes({ MediaType.APPLICATION_JSON })
 public class AdminFacadeResource {
