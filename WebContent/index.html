@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1255">
+<title>Coupon System</title>
+<!--<script src=http://code.jquery.com/jquery-1.11.3.js></script>-->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script type="text/javascript" src="JS/LogIn.js"></script>
+
+</head>
+<body>
+	<div data-ng-app="appLogIn" data-ng-controller="ctlLogIn" data-ng-init="restURL='rest/login'">
+		User Name <br><input type="text" id ="userName" data-ng-model="userName" > <br>
+		Password <br><input type="password" data-ng-model="password" ><br>
+		User Type <select data-ng-model="clientType"> 
+		  <option value="AdminFacade">Admin</option>
+		  <option value="CompanyFacade">Company</option>
+		  <option value="CustomerFacade">Customer</option>	 
+		</select> <br>
+		<br>
+		<input type="button" name ="logIN" value="Log In" ng-click="LogIN()">
+	<br>
+	<div>			
+			<div id="errorMessage" style="color: red;" data-ng-bind="errorDetails"></div>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
