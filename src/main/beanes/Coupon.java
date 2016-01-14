@@ -18,6 +18,7 @@ public class Coupon {
 	private String image;
 	private CouponType couponType;
 
+	public Coupon(){super();}
 	
 	public Coupon(long id, String title, Date startDate, Date endDate,
 			int amount, String msg, double price, String image,
@@ -109,6 +110,10 @@ public class Coupon {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public void setStartDate(Date startDate) {

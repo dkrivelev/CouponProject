@@ -10,6 +10,7 @@ public class Customer {
 	private String custName;
 	private String password;
 
+	public Customer(){super();}
 	public Customer(long id , String custName, String password) {
 		super();
 		this.id = id; // for make sure the id is set only once, check is made in setID

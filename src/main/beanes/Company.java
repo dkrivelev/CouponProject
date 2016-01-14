@@ -10,6 +10,8 @@ public class Company {
 	private String password;
 	private String email;
 		
+	public Company(){super();}
+	
 	public Company(long id, String compName, String password, String email) {
 		super();
 		this.id = id;
@@ -64,6 +66,7 @@ public class Company {
 	public String getEmail() {
 		return email;
 	}
+		
 	// }}
 	
 	// {{ Setters
@@ -81,6 +84,15 @@ public class Company {
 			 
 		 this.id = id;
 		}
+	 
+	//Added because of phase 2:
+	 public void setId(long id) {
+			this.id = id;
+		}
+
+		public void setCompName(String compName) {
+			this.compName = compName;
+		}
 	// }}
 	
 	
@@ -90,5 +102,7 @@ public class Company {
 		return "Company [id=" + id + ", compName=" + compName + ", password="
 				+ password + ", email=" + email + "]";
 	}
+
+	
 	
 }

@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 //import org.codehaus.jackson.annotate.JsonProperty;
 
-@XmlRootElement
+//@XmlRootElement
 public class JsonLogIn{
 	
 	
