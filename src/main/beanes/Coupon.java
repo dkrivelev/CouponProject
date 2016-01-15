@@ -1,7 +1,6 @@
 package main.beanes;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 import main.Exceptions.CouponSystemException;
 import main.db.DBDAO.CouponDBDAO;
