@@ -10,7 +10,10 @@ public class Company {
 	private String password;
 	private String email;
 		
-	public Company(){super();}
+	public Company(){
+		super();
+		this.id = Long.MIN_VALUE; // for make sure the id is set only once, check is made in setID
+		}
 	
 	public Company(long id, String compName, String password, String email) {
 		super();
@@ -86,11 +89,7 @@ public class Company {
 		}
 	 
 	//Added because of phase 2:
-	 public void setId(long id) {
-			this.id = id;
-		}
-
-		public void setCompName(String compName) {
+	 public void setCompName(String compName) {
 			this.compName = compName;
 		}
 	// }}

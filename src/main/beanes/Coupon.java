@@ -18,7 +18,12 @@ public class Coupon {
 	private String image;
 	private CouponType couponType;
 
-	public Coupon(){super();}
+	public Coupon(){
+		super();	
+
+		this.id = Long.MIN_VALUE; // for make sure the id is set only once, check is made in setID
+	
+	}
 	
 	public Coupon(long id, String title, Date startDate, Date endDate,
 			int amount, String msg, double price, String image,
