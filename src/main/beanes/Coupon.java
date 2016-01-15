@@ -1,13 +1,15 @@
 package main.beanes;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import main.Exceptions.CouponSystemException;
 import main.db.DBDAO.CouponDBDAO;
 import main.enums.CouponType;
 
 public class Coupon {
-
+	
+		
 	private long id;
 	private String title;
 	private Date startDate;
@@ -71,7 +73,7 @@ public class Coupon {
 			CouponDBDAO coupDBDAO = new CouponDBDAO();
 			Coupon temp = coupDBDAO.GetCoupon(title);
 			if (temp != null)
-				setID(temp.getId());
+				setId(temp.getId());
 		}
 		
 		return id;
@@ -117,10 +119,6 @@ public class Coupon {
 		this.title = title;
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
@@ -149,7 +147,7 @@ public class Coupon {
 		this.couponType = couponType;
 	}
 
-	public void setID(long id) {
+	public void setId(long id) {
 		 if (this.id != Long.MIN_VALUE)	
 			 throw new CouponSystemException("Coupon ID can be set only once");
 			 

@@ -2,6 +2,7 @@ package main.api;
 
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -27,6 +28,7 @@ import main.enums.CouponType;
 @Consumes({ MediaType.APPLICATION_JSON })
 public class CompanyFacadeResource {
 
+	
 	
 	@POST	
 	public Coupon CreateCoupon(@Context HttpServletRequest request, Coupon coupon) {
@@ -109,25 +111,41 @@ public class CompanyFacadeResource {
 				throw new CouponSystemException("You are not authorized to perform that operation");
 				
 			Double price;
-			try {
-				price = Double.valueOf(strPrice);
-			} catch (Exception e) {
-				throw new CouponSystemException("Price value is illegal ");
+			if (strPrice.equals("null") || strPrice.isEmpty())
+				price = Double.MAX_VALUE;
+			else{
+				try {
+					price = Double.valueOf(strPrice);
+				} catch (Exception e) {
+					throw new CouponSystemException("Price value is illegal ");
+				}
 			}
 			
+			final SimpleDateFormat formatter= new SimpleDateFormat("dd-MM-yyyy");
 			Date date;
-			try {
-				date = new Date(Long.parseLong(strDate));
-			} catch (Exception e) {
+			if (strDate.equals("null") || strDate.isEmpty())
 				date = null;
+			else{
+				try {
+					date = new java.sql.Date(formatter.parse(strDate).getTime());
+				} catch (Exception e) {
+					throw new CouponSystemException("Date format is illegal. Format: dd-MM-yyyy");
+				}
 			}
+			
 			
 			CouponType couponType;
-			try {
-				couponType = CouponType.valueOf(strCouponType);
-			} catch (Exception e) {
-				couponType= null;
+			if (strCouponType.equals("null")|| strCouponType.isEmpty())
+				couponType = null;
+			else
+			{
+				try {
+					couponType = CouponType.valueOf(strCouponType);
+				} catch (Exception e) {
+					throw new CouponSystemException("Coupon Type is illegal ");
+				}
 			}
+			
 			return compFacade.GetCouponsByTypePriceDate(couponType, price, date).toArray(new Coupon[0]);
 		}
 		throw new CouponSystemException("You are not logged in, please log");
