@@ -25,7 +25,7 @@ public class AdminFacadeResource {
 	// TODO need to return Coupon in all the relevant function
 
 	@DELETE
-	@Path("/id/{id}")
+	@Path("/customer/{id}")
 	public Customer RemoveCustomer(@Context HttpServletRequest request, @PathParam("id") long custID) {
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {
@@ -41,8 +41,8 @@ public class AdminFacadeResource {
 
 	}
 
-	@PUT
-	@Consumes(MediaType.APPLICATION_JSON)
+	@PUT	
+	@Path("/customer")
 	public Customer UpdateCustomer(@Context HttpServletRequest request, Customer cust) {
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {
@@ -58,7 +58,7 @@ public class AdminFacadeResource {
 	}
 
 	@GET
-	@Path("/id/{id}")
+	@Path("/customer/{id}")
 	public Customer GetCustomerByID(@Context HttpServletRequest request, @PathParam("id") long customerID) {
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {
@@ -73,7 +73,7 @@ public class AdminFacadeResource {
 	}
 
 	@GET
-	@Path("/name/{name}")
+	@Path("customer/name/{name}")
 	public Customer GetCustomerByName(@Context HttpServletRequest request, @PathParam("name") String customerName) {
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {
@@ -88,7 +88,7 @@ public class AdminFacadeResource {
 	}
 
 	@GET
-	@Path("/all")
+	@Path("customer/all")
 	public Customer[] GetAllCustomers(@Context HttpServletRequest request) {
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {
@@ -103,8 +103,8 @@ public class AdminFacadeResource {
 		throw new CouponSystemException("You are not logged in, please log");
 	}
 
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
+	@POST	
+	@Path("/customer")
 	public Customer CreateCustomer(@Context HttpServletRequest request, Customer cust) {
 
 		HttpSession seesion = request.getSession(false);
@@ -121,7 +121,7 @@ public class AdminFacadeResource {
 	}
 
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/company")
 	public Company CreateCompany(@Context HttpServletRequest request, Company comp) {
 
 		HttpSession seesion = request.getSession(false);
@@ -139,7 +139,7 @@ public class AdminFacadeResource {
 	}
 
 	@DELETE
-	@Path("/id/{id}")
+	@Path("/company/{id}")
 	public Company RemoveCompany(@Context HttpServletRequest request, @PathParam("id") long compID) {
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {
@@ -157,7 +157,7 @@ public class AdminFacadeResource {
 	}
 
 	@PUT
-	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/company")
 	public Company UpdateCompany(@Context HttpServletRequest request, Company comp) {
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {
@@ -173,7 +173,7 @@ public class AdminFacadeResource {
 	}
 
 	@GET
-	@Path("/id/{id}")
+	@Path("/company/{id}")
 	public Company GetCompanyByID(@Context HttpServletRequest request, @PathParam("id") long companyID) {
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {
@@ -188,7 +188,7 @@ public class AdminFacadeResource {
 	}
 
 	@GET
-	@Path("/name/{name}")
+	@Path("company/name/{name}")
 	public Company GetCompanyByName(@Context HttpServletRequest request, @PathParam("name") String companyName) {
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {
@@ -203,7 +203,7 @@ public class AdminFacadeResource {
 	}
 
 	@GET
-	@Path("/all")
+	@Path("company/all")
 	public Company[] GetAllCompanies(@Context HttpServletRequest request) {
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {

@@ -28,8 +28,7 @@ import main.enums.CouponType;
 public class CompanyFacadeResource {
 
 	
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
+	@POST	
 	public Coupon CreateCoupon(@Context HttpServletRequest request, Coupon coupon) {
 
 		HttpSession seesion = request.getSession(false);
@@ -83,7 +82,7 @@ public class CompanyFacadeResource {
 	}
 	
 	@GET
-	@Path("/company")
+	@Path("/all")
 	public Coupon[] GetAllCompanyCoupons(@Context HttpServletRequest request){
 		HttpSession seesion = request.getSession(false);
 		if (seesion != null) {
@@ -98,7 +97,7 @@ public class CompanyFacadeResource {
 	}
 	
 	@GET
-	@Path("/company/type/{type}/price/{price}/date/{date}")
+	@Path("/type/{type}/price/{price}/date/{date}")
 	public Coupon[] GetCompanyCouponsByTypePriceDate(@Context HttpServletRequest request ,
 			@PathParam("type")String strCouponType,@PathParam("price")String strPrice, @PathParam("date")String strDate){
 		
