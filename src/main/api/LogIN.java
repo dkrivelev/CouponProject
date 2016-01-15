@@ -48,6 +48,7 @@ public class LogIN {
 				session.setAttribute("customerFacade", (CustomerFacade)clientFacade);				
 				break;							
 			}
+			System.out.println("session is for debuging: " + session.getId());
 			return jsnLogIN;
 		}
 		else
