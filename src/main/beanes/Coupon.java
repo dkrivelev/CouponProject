@@ -7,7 +7,8 @@ import main.db.DBDAO.CouponDBDAO;
 import main.enums.CouponType;
 
 public class Coupon {
-
+	
+		
 	private long id;
 	private String title;
 	private Date startDate;
@@ -18,6 +19,12 @@ public class Coupon {
 	private String image;
 	private CouponType couponType;
 
+	public Coupon(){
+		super();	
+
+		this.id = Long.MIN_VALUE; // for make sure the id is set only once, check is made in setID
+	
+	}
 	
 	public Coupon(long id, String title, Date startDate, Date endDate,
 			int amount, String msg, double price, String image,
@@ -65,7 +72,7 @@ public class Coupon {
 			CouponDBDAO coupDBDAO = new CouponDBDAO();
 			Coupon temp = coupDBDAO.GetCoupon(title);
 			if (temp != null)
-				setID(temp.getId());
+				setId(temp.getId());
 		}
 		
 		return id;
@@ -139,7 +146,7 @@ public class Coupon {
 		this.couponType = couponType;
 	}
 
-	public void setID(long id) {
+	public void setId(long id) {
 		 if (this.id != Long.MIN_VALUE)	
 			 throw new CouponSystemException("Coupon ID can be set only once");
 			 

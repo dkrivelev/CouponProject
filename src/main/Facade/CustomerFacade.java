@@ -44,6 +44,8 @@ public class CustomerFacade implements ClientFacade{
 	 */
 	public void PurchaseCoupon(long couponID) throws CouponSystemException {
 		Coupon coupon = couponDBDAO.GetCoupon(couponID);
+		if (coupon == null )
+			throw new CouponSystemException("Cannot does not exists");
 		int amount = coupon.getAmount();
 		if ( amount <= 0 )
 			throw new CouponSystemException("Cannot purchase coupon because it is out of stock");

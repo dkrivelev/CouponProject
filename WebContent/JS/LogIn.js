@@ -4,14 +4,13 @@
 
 var app = angular.module('appLogIn', []);
 	app.controller('ctlLogIn', function($scope, $http) {
-		$scope.restURL = "";
-		
+		$scope.restURL = "";		
 		$scope.LogIN = function(){
 			url = $scope.restURL;
 						
 			$http.post(url, {"userName" : $scope.userName, "password" : $scope.password, "clientType" : $scope.clientType })
 			.then(function(response) {
-				//$scope.showInfoMessage("Successfully LogedIn");				
+				$scope.errorDetails ="";				
 			}, $scope.handleError);
 		}		
 

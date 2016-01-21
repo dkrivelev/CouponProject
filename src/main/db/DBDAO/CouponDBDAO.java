@@ -42,7 +42,7 @@ public class CouponDBDAO implements CouponDAO {
 			preStatement.execute();
 			ResultSet rs = preStatement.getGeneratedKeys();
 			if (rs.next()) {
-				coup.setID(rs.getLong(1));
+				coup.setId(rs.getLong(1));
 			}
 
 		} catch (SQLException e) {
@@ -155,7 +155,7 @@ public class CouponDBDAO implements CouponDAO {
 						rs.getInt("Amount"), rs.getString("Massage"),
 						rs.getDouble("Price"), rs.getString("Image"),
 						rs.getString("Type"));
-				retCoupon.setID(rs.getLong("ID"));
+				retCoupon.setId(rs.getLong("ID"));
 			}
 
 		} catch (SQLException e) {
@@ -187,7 +187,7 @@ public class CouponDBDAO implements CouponDAO {
 						rs.getInt("Amount"), rs.getString("Massage"),
 						rs.getDouble("Price"), rs.getString("Image"),
 						rs.getString("Type"));
-				retCoupon.setID(rs.getLong("ID"));
+				retCoupon.setId(rs.getLong("ID"));
 			}
 
 		} catch (SQLException e) {
@@ -219,7 +219,7 @@ public class CouponDBDAO implements CouponDAO {
 						rs.getInt("Amount"), rs.getString("Massage"),
 						rs.getDouble("Price"), rs.getString("Image"),
 						rs.getString("Type"));
-				c.setID(rs.getLong("ID"));
+				c.setId(rs.getLong("ID"));
 				allCoupons.add(c);
 			}
 
@@ -253,7 +253,7 @@ public class CouponDBDAO implements CouponDAO {
 						rs.getInt("Amount"), rs.getString("Massage"),
 						rs.getDouble("Price"), rs.getString("Image"),
 						rs.getString("Type"));
-				c.setID(rs.getLong("ID"));
+				c.setId(rs.getLong("ID"));
 				Coupons.add(c);
 			}
 

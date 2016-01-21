@@ -26,7 +26,7 @@ public class LogIN {
 	
 	
 	@POST	
-	public String checkLogIn(@Context HttpServletRequest request , JsonLogIn jsnLogIN) throws CouponSystemException
+	public JsonLogIn checkLogIn(@Context HttpServletRequest request , JsonLogIn jsnLogIN) throws CouponSystemException
 	{
 		//Json example: {"userName":"comp1","password":"123","clientType":"CompanyFacade"}
 		//url: localhost:8080/CoponProject_Phase2/rest/login
@@ -48,7 +48,8 @@ public class LogIN {
 				session.setAttribute("customerFacade", (CustomerFacade)clientFacade);				
 				break;							
 			}
-			return ("Suessfully LogedIn");
+			System.out.println("session is for debuging: " + session.getId());
+			return jsnLogIN;
 		}
 		else
 		{
